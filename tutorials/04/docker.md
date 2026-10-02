@@ -82,7 +82,7 @@ HTTPServer(("0.0.0.0", 8000), Handler).serve_forever()
 
 Create a file named `Dockerfile` (capital D, no extension):
 
-```docker
+```dockerfile
 FROM python:3.12-slim
 WORKDIR /app
 COPY app.py /app/app.py
@@ -181,7 +181,7 @@ end
 
 Create a `Dockerfile`:
 
-```docker
+```dockerfile
 FROM elixir:1.20.4-alpine
 WORKDIR /app
 COPY node.exs /app/node.exs
