@@ -30,6 +30,10 @@ To keep the practical within 45 minutes, the instructor should pre-pull both bas
     docker pull python:3.12-slim
     docker pull elixir:1.20.4-alpine
 
+List the the pulled images:
+
+    docker images
+
 The Docker daemon must be running. Verify in a terminal or PowerShell:
 
     docker version
@@ -58,10 +62,11 @@ Create a folder named `docker-lab` and open a terminal in that folder. The comma
 Create a file named `app.py` with this content:
 
 ```python
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from html import escape
 import os
 import socket
+from html import escape
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -76,6 +81,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
 
 HTTPServer(("0.0.0.0", 8000), Handler).serve_forever()
 ```
@@ -222,7 +228,7 @@ Stop the worker and remove the network:
 - The cookie is a shared secret. `labcookie` is intentionally weak and must never be reused outside this isolated classroom exercise. Erlang distribution should not be exposed to untrusted networks.
 - This demonstrates a remote node call; it does not provide fault tolerance, service discovery, encryption, or production security.
 
-## OPTIONAL CHALLENGE (IF YOU FINISHES EARLY)
+## OPTIONAL CHALLENGE (IF YOU FINISH EARLY)
 
 1. Start two containers from the same image, using different host ports and `COURSE` values. Are the containers using one image or two?
 2. Try publishing a second host port while container port 8000 remains unchanged.
