@@ -1,5 +1,7 @@
 # KV Store in Elixir
 
+You can find the full implementation here: https://github.com/Benji19967/elixir_kvstore
+
 ## Creating a project
 
 ```
